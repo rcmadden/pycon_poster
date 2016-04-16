@@ -10,7 +10,7 @@ app = Flask(__name__)
 # http://stackoverflow.com/questions/10364854/flask-debug-true-does-not-work-when-going-through-uwsgi
 app.wsgi_app = DebuggedApplication(app.wsgi_app, True) # python 3.x
 
-story = ''' One day {CHARACTER} was feeling {adjective} and then decided to {verb}  '''
+story_template = ''' One day {CHARACTER} was feeling {adjective} and then decided to {verb}  '''
 parts = ['CHARACTER', 'adjective', 'verb']
 
 def parts_form(parts):
@@ -32,7 +32,11 @@ def home():
         input = {}
         for part in parts:
             input[part] = request.args.get(part)
-        return story.format(**input) # keyword args
+        name = input['CHARACTER']
+        url = characters.character_images[name]
+        picture = '<img src="{url}" alt="{CHARACTER}">'.format(url=url, CHARACTER=name)
+        story = story_template.format(**input) # keyword args
+        return story + picture
     else:
         return parts_form(parts)
 
