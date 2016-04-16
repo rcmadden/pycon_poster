@@ -1,5 +1,7 @@
 from flask import Flask, request
 from werkzeug.debug import DebuggedApplication
+import characters
+
 
 app = Flask(__name__)
 # TODO: Python 2/3 compatible? if python 2.x app.debug=True if python 3 use werkzeug.debug, if error no debugger
@@ -8,13 +10,18 @@ app = Flask(__name__)
 # http://stackoverflow.com/questions/10364854/flask-debug-true-does-not-work-when-going-through-uwsgi
 app.wsgi_app = DebuggedApplication(app.wsgi_app, True) # python 3.x
 
-story = ''' One day {character} was feeling {adjective} and then decided to {verb}  '''
-parts = ['character', 'adjective', 'verb']
+story = ''' One day {CHARACTER} was feeling {adjective} and then decided to {verb}  '''
+parts = ['CHARACTER', 'adjective', 'verb']
 
 def parts_form(parts):
     markup = '<form action="">'
+    options = ['<option value="{name}">{name}</option>'.format(name=name) for name in characters.characters.keys()]
+    picker = '<select name="CHARACTER">' + '\n' .join(options) + '</select>'
     for part in parts:
-        markup = markup + '<p><label>{part}<input name="{part}"></label></p>'.format(part=part)
+        if part == 'CHARACTER':
+            markup = markup + '<p><label>Pick your favorite character' + picker + '</label></p>'
+        else:
+            markup = markup + '<p><label>{part}<input name="{part}"></label></p>'.format(part=part)
     submit = '<input type = "submit" name="filledout">'
     return markup + submit + '</form>'
 
