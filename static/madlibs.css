@@ -1,0 +1,117 @@
+h1 {
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
+    color: #CC0000;
+    font-size: 50px;
+
+}
+
+p {
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    /*margin: auto;*/
+    margin: 4em;
+    text-align: center;
+}
+
+img{
+    margin: auto;
+    display: block;
+}
+
+html {
+    background-color: #CCFFFF;
+}
+
+label {
+    font-family: 'Indie Flower';
+    font-size: 30px;
+    text-align: center;
+    display: block;
+    margin: 2em 0;
+}
+
+select {
+    font-family: 'Indie Flower';
+    font-size: 35px;
+}
+
+#red {
+    color: #CC0000;
+}
+
+#orange {
+    color: orange;
+}
+
+#yellow {
+    color: yellow;
+}
+
+
+#green {
+    color: green;
+}
+
+
+#blue {
+    color: blue;
+}
+
+
+#purple {
+    color: purple;
+}
+
+.textbox {
+     font-family: 'Indie Flower';
+    font-size: 35px;
+    border: 2px solid #CC0000;
+}
+
+.submit {
+    font-family: 'Indie Flower';
+    font-size: 35px;
+    border: 2px solid #CC0000;
+    margin: auto;
+    display: block;
+}
+
+.radio {
+    margin: 2em;
+}
+
+#top, #bottom, #left, #right {
+    background: #FFFF66;
+    position: fixed;
+}
+
+#left, #right {
+    top: 0;
+    bottom: 0;
+    width: 15px;
+}
+#left{
+    left: 0;
+    border-right: 4px ridge #CC0000;
+}
+
+#right{
+    right:0;
+    border-left: 4px ridge #CC0000;
+}
+
+#top, #bottom {
+    left: 0;
+    right: 0;
+    height: 15px;
+}
+#top{
+    top: 0;
+    border-bottom: 4px ridge #CC0000;
+}
+#bottom{
+    bottom: 0;
+    border-top: 4px ridge #CC0000;
+}
+

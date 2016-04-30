@@ -1,0 +1,38 @@
+{% from '_macros.html' import movie_details, error_box, info_box %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hi There!</title>
+    <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./static/madlibs.css">
+</head>
+<body>
+    <div id="left"></div>
+    <div id="right"></div>
+    <div id="top"></div>
+    <div id="bottom"></div>
+    <h1>Hi There!</h1>
+    <form action="/greet">
+        <label>What's your name? <input class='textbox' type="text" name="person"></label>
+        <input class='submit' type="submit">
+    </form>
+</body>
+</html>
+
+    <style type="text/css">
+        #navbar-main p { padding-right: 12px; }
+        .movie-container { padding: 20px 0px 20px 0px; }
+        .movie-container span.poster { display: inline-block; }
+        .movie-container span.poster img { width: 65%; }
+        .comment p { font-size: 9pt; margin: 2px 0px 2px 0px; }
+        .comment blockquote { font-size: 10pt; }
+    </style>
+</head>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href=".static/madlis.css">
+    <style type="text/css">
+        container { font-family: 'Indie Flower', cursive; }
+    </style>
+</head>
+<body>
+<h1>
+    <div class="container">
+        <form action="{{action}}">
+            {% for part in parts %}
+                {% if part == 'CHARACTER' %}
+                    <p><label>Pick your favorite character {{ picker }} </label></p>
+                    <div class="story">
+                        <select name="CHARACTER">
+                            {% for name in characters.characters.keys() %}
+                                <option value="{{name}}">{{name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                {% else %}
+                    <p><label>{{ part }}<input name="{{ part }}"></label></p>
+                {% endif %}
+            {% endfor %}
+            {% if story_template %}
+                <input type="hidden" name="story_template" value="{{value}}">
+                {% endif %}
+            <input type = "submit" name="filledout">
+        </form>
+    </div>
+    </h1>
+
+</body>
+</html>
