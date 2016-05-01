@@ -2,7 +2,7 @@ import importlib
 import reloader as reloader
 from flask import Flask, request, render_template
 from werkzeug.debug import DebuggedApplication
-import characters
+import characters_all as characters
 import re # https://docs.python.org/2/library/re.html
 from xml.sax.saxutils import quoteattr
 
@@ -49,9 +49,9 @@ def basic_story():
     else:
         story, picture = process_story_form(request.args, basic_parts, basic_story_template)
         next_link = '<p><a href="Make_your_own">Make your own</a></p>'
+        url_query = story + picture + '\n' + next_link
+        # return render_template('index_1.html', url_query=url_query)
         return story + picture + '\n' + next_link
-        # return render_template('index_1.html', story_url=story_url)
-
 
 
 def process_story_form(args, parts, story_template):
