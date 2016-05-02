@@ -1,5 +1,4 @@
 import importlib
-import reloader as reloader
 from flask import Flask, request, render_template
 from werkzeug.debug import DebuggedApplication
 import characters_all as characters
@@ -8,7 +7,7 @@ from xml.sax.saxutils import quoteattr
 
 
 app = Flask(__name__)
-# TODO: Pyth6on 2/3 compatible? if python 2.x app.debug=True if python 3 use werkzeug.debug, if error no debugger
+# TODO: Python 2/3 compatible? if python 2.x app.debug=True if python 3 use werkzeug.debug, if error no debugger
 # app.debug=True # python 2.x
 # python 3 error TypeError: can't use a string pattern on a bytes-like object
 # http://stackoverflow.com/questions/10364854/flask-debug-true-does-not-work-when-going-through-uwsgi
@@ -16,12 +15,10 @@ app.wsgi_app = DebuggedApplication(app.wsgi_app, True) # python 3.x
 
 basic_story_template = ''' One day {CHARACTER} was feeling {adjective} and then decided to {verb}  '''
 basic_parts = ['CHARACTER', 'adjective', 'verb']
-
-
-
 test_input = '''
 This is my story with a {noun} and a {verb}
 '''
+
 def find_parts(story_template):
     '''
     >>> find_parts(test_input)
@@ -39,18 +36,15 @@ def find_parts(story_template):
     return [slot[1:-1] for slot in slots]
 
 
-
-
-
 @app.route('/')
 def basic_story():
     if request.args.get("filledout") is None:
-        return render_template('index_1.html', parts=basic_parts, action='/', characters=characters, story_template=None)
+        return render_template('index_2.html', parts=basic_parts, action='/', characters=characters, story_template=None)
     else:
         story, picture = process_story_form(request.args, basic_parts, basic_story_template)
         next_link = '<p><a href="Make_your_own">Make your own</a></p>'
         url_query = story + picture + '\n' + next_link
-        # return render_template('index_1.html', url_query=url_query)
+        # return render_template('index_2.html', url_query=url_query)
         return story + picture + '\n' + next_link
 
 

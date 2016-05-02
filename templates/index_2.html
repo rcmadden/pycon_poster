@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+    <form action="{{action}}">
+        {% for part in parts %}
+            {% if part == 'CHARACTER' %}
+                <p><label>Pick your favorite character {{picker}} </label>
+                    <select class="drop-down" name="CHARACTER">
+                        {% for name in characters.characters.keys() %}
+                            <option value="{{name}}">{{name}}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+            {% else %}
+                <p><label>{{ part }} <input class="textbox" name="{{ part }}"></label></p>
+            {% endif %}
+        {% endfor %}
+        {% if story_template %}
+            <input type="hidden" name="story_template" value="{{value}}">
+            {% endif %}
+        <input class="submit" type = "submit" name="filledout">
+    </form>
+    </div>
+</div>
+{% endblock %}
