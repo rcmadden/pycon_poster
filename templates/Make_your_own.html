@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Story</h1>
+    <form action="{{parts_form}}">
+      {% if request.args.get("filledout") %}
+            <p>custom_story_template = request.args.get('story_template') </p>
+            <p>parts_form(find_parts(custom_story_template), action='/custom/', story_template=custom_story_template)</p>`
+        {% else %}
+            <form action=""><textarea rows="10" cols="50" name="story_template">Once upon a time ...</textarea>
+        {% endif %}
+        <input type = "submit" name="filledout">
+    </form>
+
+{% endblock %}

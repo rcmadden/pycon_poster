@@ -63,11 +63,12 @@ def process_story_form(args, parts, story_template):
 def make_your_own():
     if request.args.get("filledout"):
         custom_story_template = request.args.get('story_template')
-        return parts_form(find_parts(custom_story_template), action='/custom/', story_template=custom_story_template)
-    else:
-        submit = '<input type = "submit" name="filledout">'
-        story_form = '<form action=""><textarea rows="10" cols="50" name="story_template">Once upon a time ...</textarea>' + submit + '</form>'
-        return story_form
+        # return parts_form(find_parts(custom_story_template), action='/custom/', story_template=custom_story_template)
+#     else:
+#         submit = '<input type = "submit" name="filledout">'
+#         story_form = '<form action=""><textarea rows="10" cols="50" name="story_template">Once upon a time ...</textarea>' + submit + '</form>'
+#         return story_form
+    return render_template('Make_your_own.html')
 
 
 @app.route('/custom/')
@@ -89,4 +90,4 @@ def show_post(post_id):
     return 'Post %d' % post_id
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
