@@ -41,48 +41,22 @@ def basic_story():
     if request.args.get("filledout") is None:
         return render_template('index_1b.html', parts=basic_parts, action='/', characters=characters, story_template=None)
     else:
-        story, picture = process_story_form(request.args, basic_parts, basic_story_template)
-        next_link = '<p><a href="Make_your_own">Make your own</a></p>'
-        url_query = story + picture + '\n' + next_link
-        # return render_template('index_1b.html', url_query=url_query)
-        return story + picture + '\n' + next_link
-
-
-def process_story_form(args, parts, story_template):
-    input = {}
-    for part in parts:
-        input[part] = args.get(part)
-    name = input['CHARACTER']
-    url = characters.character_images[name]
-    picture = '<img src="{url}" alt="{CHARACTER}">'.format(url=url, CHARACTER=name)
-    story = story_template.format(**input) # keyword args
-    return story, picture
+        name = request.args['CHARACTER']
+        url = characters.character_images[name]
+        story_template = request.args.get('story_template')
+        story = story_template.format(**request.args) # keyword args
+        # return story + picture + '\n' + next_link
+        return render_template('custom_story.html', CHARACTER=name, url=url, story=story)
 
 
 @app.route('/Make_your_own/')
 def make_your_own():
     if request.args.get("filledout"):
         custom_story_template = request.args.get('story_template')
-        # return parts_form(find_parts(custom_story_template), action='/custom/', story_template=custom_story_template)
-#     else:
-#         submit = '<input type = "submit" name="filledout">'
-#         story_form = '<form action=""><textarea rows="10" cols="50" name="story_template">Once upon a time ...</textarea>' + submit + '</form>'
-#         return story_form
-    return render_template('Make_your_own.html')
-
-
-@app.route('/custom/')
-def custom_story():
-    if request.args.get("filledout") is None:
-        custom_story_template = request.args.get('story_template')
         custom_parts = find_parts(custom_story_template)
-        return parts_form(custom_parts, action='/', story_template=custom_story_template)
+        return render_template('index_1b.html', parts=custom_parts, action='/', characters=characters, story_template=custom_story_template)
     else:
-        custom_story_template = request.args.get('story_template')
-        custom_parts = find_parts(custom_story_template)
-        story, picture = process_story_form(request.args, custom_parts, custom_story_template)
-        return story + picture
-
+        return render_template('Make_your_own.html')
 
 @app.route('/post/<int:post_id>')
 def show_post(post_id):
