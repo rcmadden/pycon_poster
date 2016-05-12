@@ -14,10 +14,12 @@ character_images = {
     'Ant Man': 'http://i.annihil.us/u/prod/marvel/i/mg/5/d0/54ad72b6084a0.jpg'
 }
 
+
 @app.route('/')
 def index():
     heroes = character_images.keys()
     return render_template('index.html', character_images=character_images, heroes=heroes)
+
 
 @app.route('/<name>/')
 def projects(name):

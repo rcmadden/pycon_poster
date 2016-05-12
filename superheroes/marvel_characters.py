@@ -1,7 +1,7 @@
 character_images = {
     'Spider-Man': 'http://x.annihil.us/u/prod/marvel/i/mg/6/60/538cd3628a05e.jpg',
     'Captain Marvel': 'http://x.annihil.us/u/prod/marvel/i/mg/6/30/537ba61b764b4.jpg',
-    'Hulk': 'http://x.annihil.us/u/prod/marvel/i/mg/e/e0/537bafa34baa9.jpghul',
+    'Hulk': 'http://x.annihil.us/u/prod/marvel/i/mg/e/e0/537bafa34baa9.jpg',
     'Iron Man': 'http://i.annihil.us/u/prod/marvel/i/mg/c/60/55b6a28ef24fa.jpg',
     'Captain America': 'http://x.annihil.us/u/prod/marvel/i/mg/9/80/537ba5b368b7d.jpg',
     'Wolverine': 'http://i.annihil.us/u/prod/marvel/i/mg/9/00/537bcb1133fd7.jpg',
