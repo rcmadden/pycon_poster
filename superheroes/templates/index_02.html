@@ -1,11 +1,12 @@
 <h1>Super Heroes</h1>
 <hr>
+{{ character_info }}
 <table>
     {% for hero in heroes %}
     <tr>
-        <td>{{ hero }}: {{ character_info['Real Name'] }}<img src="{{ character_images[hero] }}" alt="{{ hero }}"></td></td>
-        <td></td>
-        <td></td>
+        <td><img src="{{ character_images[hero] }}" alt="{{ hero }}" width="420"></td>
+        <td>{{ hero }}: </td>
+        <td>{{ character_info[hero]['Real Name'] }}</td>
     </tr>
     {% endfor %}
 </table>

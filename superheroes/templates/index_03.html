@@ -1,0 +1,19 @@
+<h1>Super Heroes Real Name</h1>
+<hr>
+{% if correct == True %}
+    Good Job {{ answer }} = {{ hero }}
+{% elif correct == False %}
+    Try again {{ answer }} != {{ hero }}  the_hero {{ the_hero}}
+{% endif %}
+
+<img src="{{ character_images[hero] }}" alt="{{ hero }}" width="420">
+<p>What is the real name of {{ hero }}?</p>
+<form action="/answer" method="post">
+<select name="answer">
+    {% for option in heroes %}
+        <option value="{{ character_info[option]['Real Name'] }}">{{ character_info[option]['Real Name'] }}</option>
+    {% endfor %}
+</select>
+    <input type="submit">
+    <input type="hidden" name="hero" value="{{ hero }}">
+</form>
