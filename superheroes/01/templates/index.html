@@ -1,7 +1,14 @@
+<body>
 <h1>Super Heroes</h1>
 <hr>
 <h1> {{ name }} </h1>
 <hr>
+<style type="text/css">
+        table { font-size: 30px; /*margin: auto;*/  margin: 4em; }
+        body { color: Black; }
+        html { background-color: lightblue; }
+        body { border-style: solid; border-color: darkred; border-width: thick}
+    </style>
 <table>
     {% for hero in heroes %}
     <tr>
@@ -9,3 +16,4 @@
     </tr>
     {% endfor %}
 </table>
+</body>

@@ -24,6 +24,7 @@ def show_question():
 def show_answer():
     hero = random.choice(list(character_images.keys()))
     heroes = character_images.keys()
+    real_name = character_images.values()
     answer = request.form['answer']
     the_hero = request.form['hero']
     # raise Exception
@@ -31,7 +32,7 @@ def show_answer():
         correct = True
     else:
         correct = False
-    return render_template('index.html', hero=hero, character_images=character_images, heroes=heroes, character_info=character_info, correct=correct, answer=answer, the_hero=the_hero)
+    return render_template('index.html', hero=hero, character_images=character_images, heroes=heroes, character_info=character_info, correct=correct, answer=answer, the_hero=the_hero, real_name=real_name)
 
 
 if __name__ == "__main__":
