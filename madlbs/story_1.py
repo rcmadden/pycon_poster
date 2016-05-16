@@ -1,10 +1,9 @@
-import importlib
+import re # https://docs.python.org/2/library/re.html
+
 from flask import Flask, request, render_template
 from werkzeug.debug import DebuggedApplication
-import characters_all as characters
-import re # https://docs.python.org/2/library/re.html
-from xml.sax.saxutils import quoteattr
 
+from madlbs import characters_all as characters
 
 app = Flask(__name__)
 # TODO: Python 2/3 compatible? if python 2.x app.debug=True if python 3 use werkzeug.debug, if error no debugger

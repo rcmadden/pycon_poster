@@ -10,14 +10,14 @@ app.wsgi_app = DebuggedApplication(app.wsgi_app, True)
 @app.route('/')
 def index():
     heroes = character_images.keys()
-    return render_template('index_02.html', heroes=heroes, character_info=character_info, character_images=character_images)
+    return render_template('index.html', heroes=heroes, character_info=character_info, character_images=character_images)
 
 
 @app.route('/question')
 def show_question():
     hero = random.choice(list(character_images.keys()))
     heroes = character_images.keys()
-    return render_template('index_03.html', hero=hero, character_images=character_images, heroes=heroes, character_info=character_info)
+    return render_template('index.html', hero=hero, character_images=character_images, heroes=heroes, character_info=character_info)
 
 
 @app.route('/answer', methods=['POST'])
@@ -31,7 +31,7 @@ def show_answer():
         correct = True
     else:
         correct = False
-    return render_template('index_03.html', hero=hero, character_images=character_images, heroes=heroes, character_info=character_info, correct=correct, answer=answer, the_hero=the_hero)
+    return render_template('index.html', hero=hero, character_images=character_images, heroes=heroes, character_info=character_info, correct=correct, answer=answer, the_hero=the_hero)
 
 
 if __name__ == "__main__":
