@@ -1,5 +1,6 @@
 <h1>Super Heroes Real Name</h1>
 <hr>
+<p>question.html</p>
  <style type="text/css">
         table { font-size: 30px; /*margin: auto;*/  margin: 4em; }
         body { color: Black; }
@@ -8,7 +9,6 @@
     </style>
 <img src="{{ character_images[hero] }}" alt="{{ hero }}" width="420">
 <p>What is the real name of {{ hero }}?</p>
-the_hero: {{ the_hero }}
 <form action="/answer" method="post">
 <select name="answer">
     {% for option in heroes %}

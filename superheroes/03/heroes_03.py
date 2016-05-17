@@ -15,24 +15,24 @@ def index():
 
 @app.route('/question')
 def show_question():
-    hero = random.choice(list(character_images.keys()))
+    random_hero = random.choice(list(character_images.keys()))
     heroes = character_images.keys()
-    return render_template('index.html', hero=hero, character_images=character_images, heroes=heroes, character_info=character_info)
+    return render_template('index.html', random_hero=random_hero, character_images=character_images, heroes=heroes, character_info=character_info)
 
 
 @app.route('/answer', methods=['POST'])
 def show_answer():
-    hero = random.choice(list(character_images.keys()))
+    random_hero = random.choice(list(character_images.keys()))
     heroes = character_images.keys()
     real_name = character_images.values()
     answer = request.form['answer']
-    the_hero = request.form['hero']
+    previous_hero = request.form['random_hero']
     # raise Exception
-    if request.form['answer'] == request.form['hero']:
+    if request.form['answer'] == request.form['random_hero']:
         correct = True
     else:
         correct = False
-    return render_template('index.html', hero=hero, character_images=character_images, heroes=heroes, character_info=character_info, correct=correct, answer=answer, the_hero=the_hero, real_name=real_name)
+    return render_template('index.html', random_hero=random_hero, character_images=character_images, heroes=heroes, character_info=character_info, correct=correct, answer=answer, previous_hero=previous_hero, real_name=real_name)
 
 
 if __name__ == "__main__":

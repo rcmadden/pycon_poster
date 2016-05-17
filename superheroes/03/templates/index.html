@@ -1,33 +1,31 @@
 <h1>Super Heroes Real Name</h1>
 <hr>
- <style type="text/css">
+<p>index.html</p>
+
+<style type="text/css">
         table { font-size: 30px; /*margin: auto;*/  margin: 4em; }
         body { color: Black; }
         html { background-color: lightblue; }
         body { border-style: solid; border-color: darkred; border-width: thick}
  </style>
 {% if correct == True %}
-    <!--Good Job {{ answer }} = {{ the_hero }}-->
-    Good Job {{ answer }} == {{ character_info[hero]['Real Name'] }}:real_name
+    {{ answer }} == {{ character_info[previous_hero]['Real Name'] }}
 {% elif correct == False %}
-    <!--Try again answer: {{ answer }} != {{ the_hero }}:the_hero-->
-    Try again answer: {{ answer }} != {{ character_info[hero]['Real Name'] }}:real_name
+    {{ answer }} != {{ character_info[previous_hero]['Real Name'] }}
 {% endif %}
 
-<img src="{{ character_images[hero] }}" alt="{{ hero }}" width="420">
-<p>What is the real name of {{ hero }}?</p>
+<img src="{{ character_images[random_hero] }}" alt="{{ random_hero }}" width="420">
+<p>What is the real name of {{ random_hero }}?</p>
 <form action="/answer" method="post">
 <select name="answer">
     {% for option in heroes %}
         <option value="{{ character_info[option]['Real Name'] }}">{{ character_info[option]['Real Name'] }}</option>
     {% endfor %}
 
-    input type value={{ hero }}
+    input type value={{ previous_hero }}
     <input type="submit">
-    <!--<input type="hidden" name="hero" value="{{ hero }}">-->
-    <input type="hidden" name="hero" value="{{ hero }}">
+    <input type="hidden" name="random_hero" value="{{ random_hero }}">
 
 
 </select>
-
 </form>
