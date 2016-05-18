@@ -27,12 +27,12 @@ def show_answer():
     real_name = character_images.values()
     answer = request.form['answer']
     previous_hero = request.form['random_hero']
-    raise Exception
-    if request.form['answer'] == request.form['random_hero']:
-        correct = True
-    else:
-        correct = False
-    return render_template('index.html', random_hero=random_hero, character_images=character_images, heroes=heroes, character_info=character_info, correct=correct, answer=answer, previous_hero=previous_hero, real_name=real_name)
+    # raise Exception
+    # if request.form['answer'] == request.form['random_hero']:
+    #    correct = True
+    # else:
+    #    correct = False
+    return render_template('index.html', random_hero=random_hero, character_images=character_images, heroes=heroes, character_info=character_info, answer=answer, previous_hero=previous_hero, real_name=real_name)
 
 
 if __name__ == "__main__":
