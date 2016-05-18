@@ -27,7 +27,7 @@ def show_answer():
     real_name = character_images.values()
     answer = request.form['answer']
     previous_hero = request.form['random_hero']
-    raise Exception
+    #raise Exception
     if request.form['answer'] == request.form['random_hero']:
         correct = True
     else:
