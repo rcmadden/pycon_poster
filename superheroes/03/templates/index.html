@@ -1,18 +1,20 @@
 <h1>Super Heroes Real Name</h1>
 <hr>
-<p>index.html</p>
 
 <style type="text/css">
         table { font-size: 30px; /*margin: auto;*/  margin: 4em; }
         body { color: Black; }
         html { background-color: lightblue; }
         body { border-style: solid; border-color: darkred; border-width: thick}
+
  </style>
-{% if correct == True %}
-    {{ answer }} == {{ character_info[previous_hero]['Real Name'] }}
-{% elif correct == False %}
-    {{ answer }} != {{ character_info[previous_hero]['Real Name'] }}
-{% endif %}
+
+ <p> {% if answer == previous_hero_real_name %}
+        <h2>correct</h2> {{ answer }} is {{ previous_hero }}
+     {% else %}
+        <h2>try again:</h2> {{ answer }} is NOT {{ previous_hero }}
+     {% endif %} </p>
+
 
 <img src="{{ character_images[random_hero] }}" alt="{{ random_hero }}" width="420">
 <p>What is the real name of {{ random_hero }}?</p>

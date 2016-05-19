@@ -12,7 +12,7 @@
 <form action="/answer" method="post">
 <select name="answer">
     {% for option in heroes %}
-        <option value="{{ character_info[option]['RealName'] }}">{{ character_info[option]['RealName'] }}</option>
+        <option value="{{ character_info[option]['Real Name'] }}">{{ character_info[option]['Real Name'] }}</option>
     {% endfor %}
 </select>
     <input type="submit">

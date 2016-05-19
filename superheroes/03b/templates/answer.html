@@ -1,6 +1,5 @@
 <h1>Super Heroes Real Name</h1>
 <hr>
-<p>index.html</p>
 
 <style type="text/css">
         table { font-size: 30px; /*margin: auto;*/  margin: 4em; }
@@ -10,17 +9,25 @@
 
  </style>
 
- <p> {% if answer == previous_hero_real_name %} correct {% endif %} </p>
+ <p> {% if answer == previous_hero_real_name %}
+        <h2>correct</h2> {{ answer }} is {{ previous_hero }}
+            {% set correct_count = 1 %}
+            {% for i in p %}
+                {{ correct_count }}
+                {% set correct_count = correct_count + 1 %}
+            {% endfor %}
+            correct: {{ correct_count }}
+     {% else %}
+        <h2>try again:</h2> {{ answer }} is NOT {{ previous_hero }}
+     {% endif %} </p>
 
- <p>answer: {{ answer }} </p>
- <p>previous_hero_name: {{ previous_hero_real_name }}</p>
 
 <img src="{{ character_images[random_hero] }}" alt="{{ random_hero }}" width="420">
 <p>What is the real name of {{ random_hero }}?</p>
 <form action="/answer" method="post">
 <select name="answer">
     {% for option in heroes %}
-        <option value="{{ character_info[option]['RealName'] }}">{{ character_info[option]['RealName'] }}</option>
+        <option value="{{ character_info[option]['Real Name'] }}">{{ character_info[option]['Real Name'] }}</option>
     {% endfor %}
 
     input type value={{ previous_hero }}

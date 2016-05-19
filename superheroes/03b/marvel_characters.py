@@ -9,13 +9,13 @@ character_images = {
 }
 
 character_info = {
-    'Spider-Man': {'RealName': 'Peter Parker', 'Powers': ''},
-    'Captain Marvel': {'RealName': 'Carol Danvers', 'Powers': ''},
-    'Hulk': {'RealName': 'Robert Banner', 'Powers': ''},
-    'Iron Man': {'RealName': 'Tony Stark', 'Powers': ''},
-    'Captain America': {'RealName': 'Steven Rogers', 'Powers': ''},
-    'Wolverine': {'RealName': 'James Howlett',
+    'Spider-Man': {'Real Name': 'Peter Parker', 'Powers': ''},
+    'Captain Marvel': {'Real Name': 'Carol Danvers', 'Powers': ''},
+    'Hulk': {'Real Name': 'Robert Banner', 'Powers': ''},
+    'Iron Man': {'Real Name': 'Tony Stark', 'Powers': ''},
+    'Captain America': {'Real Name': 'Steven Rogers', 'Powers': ''},
+    'Wolverine': {'Real Name': 'James Howlett',
                   'Powers': 'Wolverine is a mutant who possesses the ability to regenerate damaged or destroyed areas of his cellular structure at a rate far greater than that of an ordinary human.'},
-    'Ant-Man': {'RealName': ('Scott Lang', 'Eric O`Grady'),
+    'Ant-Man': {'Real Name': ('Scott Lang', 'Eric O`Grady'),
                 'Powers': 'Has the ability to shrink to roughly the size of an ant, also can communicate telepathically with insects, and (as Ant-Man) can punch with as much force as a normal sized person'}
 }
