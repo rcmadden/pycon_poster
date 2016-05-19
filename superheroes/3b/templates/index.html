@@ -10,9 +10,10 @@
 
  </style>
 
- <p> {% if {{ answer }} == {{ previous_hero_real_name }} %} correct {% endif %} </p>
+ <p> {% if answer == previous_hero_real_name %} correct {% endif %} </p>
+
  <p>answer: {{ answer }} </p>
- <p>previous_hero_name: {{ previous_hero_real_name }</p>
+ <p>previous_hero_name: {{ previous_hero_real_name }}</p>
 
 <img src="{{ character_images[random_hero] }}" alt="{{ random_hero }}" width="420">
 <p>What is the real name of {{ random_hero }}?</p>
