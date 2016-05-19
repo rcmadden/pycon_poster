@@ -6,14 +6,17 @@ import random
 app = Flask(__name__)
 app.wsgi_app = DebuggedApplication(app.wsgi_app, True)
 
+random_hero = random.choice(list(character_images.keys()))
+heroes = character_images.keys()
+real_name = character_images.values()
+
+
+#@app.route('/')
+#def index():
+#    return render_template('index.html', heroes=heroes, character_info=character_info, character_images=character_images)
+
 
 @app.route('/')
-def index():
-    heroes = character_images.keys()
-    return render_template('index.html', heroes=heroes, character_info=character_info, character_images=character_images)
-
-
-@app.route('/question')
 def show_question():
     random_hero = random.choice(list(character_images.keys()))
     heroes = character_images.keys()
@@ -22,9 +25,6 @@ def show_question():
 
 @app.route('/answer', methods=['POST'])
 def show_answer():
-    random_hero = random.choice(list(character_images.keys()))
-    heroes = character_images.keys()
-    real_name = character_images.values()
     answer = request.form['answer']
     previous_hero = request.form['random_hero']
     previous_hero_real_name = character_info[previous_hero]['RealName']
