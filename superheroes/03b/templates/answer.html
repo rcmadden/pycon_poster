@@ -8,14 +8,14 @@
         body { border-style: solid; border-color: darkred; border-width: thick}
 
  </style>
-
+{% set correct_count = 1 %}
  <p> {% if answer == previous_hero_real_name %}
         <h2>correct</h2> {{ answer }} is {{ previous_hero }}
-            {% set correct_count = 1 %}
-            {% for i in p %}
-                {{ correct_count }}
-                {% set correct_count = correct_count + 1 %}
-            {% endfor %}
+
+            <!--{% for i in p %}-->
+                <!--{{ correct_count }}-->
+                <!--{% set correct_count = correct_count + 1 %}-->
+            <!--{% endfor %}-->
             correct: {{ correct_count }}
      {% else %}
         <h2>try again:</h2> {{ answer }} is NOT {{ previous_hero }}
