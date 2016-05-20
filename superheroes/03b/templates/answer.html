@@ -8,7 +8,6 @@
         body { border-style: solid; border-color: darkred; border-width: thick}
 
  </style>
-{% set correct_count = 1 %}
  <p> {% if answer == previous_hero_real_name %}
         <h2>correct</h2> {{ answer }} is {{ previous_hero }}
 
@@ -33,6 +32,7 @@
     input type value={{ previous_hero }}
     <input type="submit">
     <input type="hidden" name="random_hero" value="{{ random_hero }}">
+    <input type="hidden" name="correct_count" value="{{ correct_count }}">
 
 
 </select>

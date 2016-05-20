@@ -9,13 +9,11 @@ app.wsgi_app = DebuggedApplication(app.wsgi_app, True)
 heroes = character_images.keys()
 real_name = character_images.values()
 
-correct_count = 0
 
-
-def counter(correct_count):
-    if correct_count <= len(heroes):
-        correct_count += 1
-    return correct_count
+#def counter(correct_count):
+#    if correct_count <= len(heroes):
+#        correct_count += 1
+#    return correct_count
 
 @app.route('/')
 def index():
@@ -28,6 +26,7 @@ def show_question():
     heroes = character_images.keys()
     return render_template('answer.html', random_hero=random_hero, character_images=character_images, heroes=heroes, character_info=character_info)
 
+i = 0
 
 @app.route('/answer', methods=['POST'])
 def show_answer():
@@ -35,10 +34,10 @@ def show_answer():
     answer = request.form['answer']
     previous_hero = request.form['random_hero']
     previous_hero_real_name = character_info[previous_hero]['Real Name']
-    correct_count()
-    # for i in len(heroes):
-    #     correct_count = correct_count + 1
-    return render_template('answer.html', random_hero=random_hero, character_images=character_images, heroes=heroes, character_info=character_info, answer=answer, previous_hero=previous_hero, real_name=real_name, previous_hero_real_name=previous_hero_real_name, correct_count=correct_count)
+    right_answers = int(request.form['correct_count'])
+    if i < 8:
+         right_answers = right_answers + 1
+    return render_template('answer.html', random_hero=random_hero, character_images=character_images, heroes=heroes, character_info=character_info, answer=answer, previous_hero=previous_hero, real_name=real_name, previous_hero_real_name=previous_hero_real_name, right_answers=right_answers)
 
 
 if __name__ == "__main__":
