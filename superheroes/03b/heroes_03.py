@@ -11,9 +11,11 @@ real_name = character_images.values()
 
 
 def score_counter(count):
-   if count != 0:
-       count += 1
-   return count
+    if count != 0:
+       count = count + 1
+    else:
+       count = count + 0
+    return count
 
 # from jinja2 import Template
 # t = '''{% set correct_count=correct_count or 0 %}Count= {{ correct_count }}'''
