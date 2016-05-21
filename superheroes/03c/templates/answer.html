@@ -8,19 +8,13 @@
         body { border-style: solid; border-color: darkred; border-width: thick}
 
  </style>
-    {% set right_answers=right_answers or 0 %}
-    {% set total=total or 0 %}
-
  <p> {% if answer == previous_hero_real_name %}
-        <h2>correct</h2> {{ answer }} <b>is</b> {{ previous_hero }}
-        <p>SCORE: {{ right_answers  }} out of {{ total }}
+        <h2>correct</h2> {{ answer }} is {{ previous_hero }}
+        <p>you have: {{ right_answers  }}
      {% else %}
         <h2>try again:</h2> {{ answer }} is NOT {{ previous_hero }}
-        <p>SCORE: {{ right_answers  }} out of {{ total }}
-     {% endif %}
- </p>
+     {% endif %} </p>
 
-<p> {{ play_again }}</p>
 
 <img src="{{ character_images[random_hero] }}" alt="{{ random_hero }}" width="420">
 <p>What is the real name of {{ random_hero }}?</p>

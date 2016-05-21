@@ -1,0 +1,20 @@
+<h1>Super Heroes Real Name</h1>
+<hr>
+<p>question.html</p>
+ <style type="text/css">
+        table { font-size: 30px; /*margin: auto;*/  margin: 4em; }
+        body { color: Black; }
+        html { background-color: lightblue; }
+        body { border-style: solid; border-color: darkred; border-width: thick}
+    </style>
+<img src="{{ character_images[hero] }}" alt="{{ hero }}" width="420">
+<p>What is the real name of {{ hero }}?</p>
+<form action="/answer" method="post">
+<select name="answer">
+    {% for option in heroes %}
+        <option value="{{ character_info[option]['Real Name'] }}">{{ character_info[option]['Real Name'] }}</option>
+    {% endfor %}
+</select>
+    <input type="submit">
+    <input type="hidden" name="hero" value="{{ hero }}">
+</form>

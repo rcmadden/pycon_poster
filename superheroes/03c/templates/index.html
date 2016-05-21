@@ -9,6 +9,7 @@
         body { border-style: solid; border-color: darkred; border-width: thick; }
     </style>
 <li><a href="{{ url_for('show_question') }}">Test Your Super Skills</a></li>
+<li><a href="{{ url_for('show_question2', world='decendents') }}">Test Your Decendents Skills</a></li>
 <table>
     {% for hero in heroes %}
     <tr>
