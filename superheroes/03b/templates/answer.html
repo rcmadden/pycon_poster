@@ -8,8 +8,8 @@
         body { border-style: solid; border-color: darkred; border-width: thick}
 
  </style>
- <p> {% if answer == previous_hero_real_name %}
-        {% set correct_count = 1 %}
+ <!--<p> {% if answer == previous_hero_real_name %}-->
+        <!--{% set correct_count = 1 %}-->
         <h2>correct</h2> {{ answer }} is {{ previous_hero }}
         <p>you have: {{ right_answers  }}
             <!--{% for i in p %}-->
@@ -30,11 +30,11 @@
     {% endfor %}
 
     input type value={{ previous_hero }}
-    {% set correct_count=correct_count or 0 %}
+    <!--{% set correct_count=correct_count or 0 %}-->
     <!--input type value={{ correct_count }}-->
     <input type="submit">
     <input type="hidden" name="random_hero" value="{{ random_hero }}">
-    <input type="hidden" name="correct_count" value="{{ correct_count }}">
+    <!--<input type="hidden" name="correct_count" value="{{ correct_count }}">-->
 
 
 </select>

@@ -8,14 +8,16 @@ app.wsgi_app = DebuggedApplication(app.wsgi_app, True)
 
 heroes = character_images.keys()
 real_name = character_images.values()
+# right_answers = 0
 
-
-def score_counter(count):
-    if count != 0:
-       count = count + 1
-    else:
-       count = count + 0
-    return count
+# counter = 0
+# def score_counter(count):
+#     if count != 0:
+#        count = count + 1
+#        #current_count = score_counter(current_count)
+#     else:
+#        count = count + 0
+#     return count
 
 # from jinja2 import Template
 # t = '''{% set correct_count=correct_count or 0 %}Count= {{ correct_count }}'''
@@ -34,16 +36,20 @@ def show_question():
     heroes = character_images.keys()
     return render_template('answer.html', random_hero=random_hero, character_images=character_images, heroes=heroes, character_info=character_info)
 
-
+right_answers = 0
 @app.route('/answer', methods=['POST'])
 def show_answer():
     random_hero = random.choice(list(character_images.keys()))
     answer = request.form['answer']
     previous_hero = request.form['random_hero']
     previous_hero_real_name = character_info[previous_hero]['Real Name']
-    right_answers = int(request.form['correct_count'])
-    if right_answers > 0:
-        print(score_counter(right_answers))
+    # right_answers = int(request.form['correct_count'])
+    if answer == previous_hero:
+        right_answers += 1
+    else:
+        right_answers += 0
+    # if right_answers > 0:
+    #     print(score_counter(right_answers))
     return render_template('answer.html', random_hero=random_hero, character_images=character_images, heroes=heroes, character_info=character_info, answer=answer, previous_hero=previous_hero, real_name=real_name, previous_hero_real_name=previous_hero_real_name, right_answers=right_answers)
 
 
