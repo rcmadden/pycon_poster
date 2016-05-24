@@ -10,6 +10,7 @@ app.wsgi_app = DebuggedApplication(app.wsgi_app, True)
 heroes = list(character_images.keys())
 real_name = sorted(character_images.values())
 # right_answers = 0
+# wrong_answers = 0
 right_answers = set()
 wrong_answers = set()
 
@@ -27,11 +28,10 @@ def show_question():
 
 @app.route('/answer', methods=['POST'])
 def show_answer():
-    global right_answers
+    global right_answers # python 3 needs global keyword to recognize variables
+    global wrong_answers
     if (len(right_answers) + len(wrong_answers)) == len(heroes):
         play_again = "Good Job! Game Over. <li><a href={{ url_for(\'show_question\') }}\">Play Again</a></li>"
-        # print(play_again)
-        # print(right_answers, len(right_answers), len(heroes))
     while True:
         random_hero = random.choice(heroes)
         if random_hero not in right_answers:
@@ -45,6 +45,7 @@ def show_answer():
         right_answers.add(random_hero)
     else:
         wrong_answers.add(random_hero)
+        # wrong_answers += 1
     return render_template('answer.html', random_hero=random_hero, character_images=character_images, heroes=heroes, character_info=character_info, answer=answer, previous_hero=previous_hero, real_name=real_name, previous_hero_real_name=previous_hero_real_name, right_answers=len(right_answers), wrong_answers=len(wrong_answers), total=len(heroes), play_again=play_again)
 
 if __name__ == "__main__":

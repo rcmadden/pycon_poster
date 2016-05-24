@@ -20,7 +20,10 @@
      {% endif %}
  </p>
 
-<p> {{ play_again }}</p>
+<!--{% set play_again=play_again or '' %}-->
+<!--<p> {{ play_again }}</p>-->
+{% if play_again != '' %}Good Job! Game Over. <li><a href="{{ url_for('show_question') }}">Play Again</a></li>{% endif %}
+
 
 <img src="{{ character_images[random_hero] }}" alt="{{ random_hero }}" width="420">
 <p>What is the real name of {{ random_hero }}?</p>
@@ -33,6 +36,7 @@
     input type value={{ previous_hero }}
     <input type="submit">
     <input type="hidden" name="random_hero" value="{{ random_hero }}">
+    <!--<p><a href="{{ url_for('index') }}">Play Again</a></p>-->
 
 
 </select>

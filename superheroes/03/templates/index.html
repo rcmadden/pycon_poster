@@ -1,21 +1,14 @@
-<h1>Super Heroes Real Name</h1>
-<hr>
-
-<style type="text/css">
-        table { font-size: 30px; /*margin: auto;*/  margin: 4em; }
-        body { color: Black; }
-        html { background-color: lightblue; }
-        body { border-style: solid; border-color: darkred; border-width: thick}
-
- </style>
-
+{% extends 'base.html' %}
+{% block title %}Super Heroes Real Name{% endblock %}
+{% block head %}
+{% endblock %}]
  <p> {% if answer == previous_hero_real_name %}
         <h2>correct</h2> {{ answer }} is {{ previous_hero }}
      {% else %}
         <h2>try again:</h2> {{ answer }} is NOT {{ previous_hero }}
      {% endif %} </p>
 
-
+{% block content %}
 <img src="{{ character_images[random_hero] }}" alt="{{ random_hero }}" width="420">
 <p>What is the real name of {{ random_hero }}?</p>
 <form action="/answer" method="post">
@@ -28,6 +21,6 @@
     <input type="submit">
     <input type="hidden" name="random_hero" value="{{ random_hero }}">
 
-
+{% endblock %}
 </select>
 </form>

@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    {% block title %} <title>Title</title> {% endblock %}
+    {% block head %}
+    <div id="head"></div>
+    <hr>
     <meta charset="UTF-8">
-    <title>Title</title>
+</head>
+<head>
     <style type="text/css">
-        table { font-size: 30px; /*margin: auto;*/  margin: 4em; }
+        table { font-size: 30px; /*margin: auto;*/ margin: 4em; }
         body { color: Black; }
         html { background-color: lightblue; }
-        body { border-style: solid; border-color: darkred; border-width: thick}
-    </style>
+        body { border-style: solid; border-color: darkred; border-width: thick;}
+        footer { position:absolute; bottom: 0; width:100%; height:60px}
 
+    </style>
+    {% endblock %}
 </head>
 <body>
-
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+        {% block footer %}
+                <a href="http://marvel.com">Data provided by Marvel. &copy 2016 Marvel </a>
+        {% endblock %}
+    </div>
 </body>
 </html>

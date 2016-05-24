@@ -15,10 +15,8 @@ import json
 app = Flask(__name__)
 app.wsgi_app = DebuggedApplication(app.wsgi_app, True)
 
-# public = PUBLIC_KEY
-# private = PRIVATE_KEY
-public = '74e38d12e0c5e226d3559848a5608fa1'
-private = '59b8587ec1340d7d98a46eb3594a8c13f957d767'
+public = PUBLIC_KEY
+private = PRIVATE_KEY
 
 ts = '1'
 # ts = datetime.datetime.now().strftime("%Y-%m-%d%H:%M:%S")
@@ -54,8 +52,8 @@ for item in characters['data']['results']:
         r = characters.get(image_path)
         print(r)
         if "MAA" not in item['name']:
-                with open(item['name']+'.jpg','wb') as fout:
-                    fout.write(r.content)
+                # with open(item['name']+'.jpg','wb') as fout:
+                    # fout.write(r.content)
                 image = item['name'] + '.jpg'
                 print(image)
 

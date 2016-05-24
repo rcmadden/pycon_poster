@@ -22,10 +22,12 @@ import urllib.request
 import urllib.request as Request
 import re
 import random
+from secret import PUBLIC_KEY, PRIVATE_KEY
+
 
 # Marvel API keys
-marvel_public_key = '138fee76826ac3baf223cb926375c3ca'
-marvel_private_key = '2c750c552474676d32ed58082d8f11b27abc43e3'
+marvel_public_key = PUBLIC_KEY
+marvel_private_key = PRIVATE_KEY
 offset = random.randrange(0, 1475)
 
 def auth(marvel_private_key, marvel_public_key):
@@ -34,7 +36,8 @@ def auth(marvel_private_key, marvel_public_key):
         return "ts=%s&apikey=%s&hash=%s" % (ts, marvel_public_key, hash_string)
 
 api_key = auth(marvel_private_key, marvel_public_key)
-request = urllib.request('http://gateway.marvel.com:80/v1/public/characters?offset=' + str(offset) + '&limit=5&' + api_key)
+# request = urllib.request('http://gateway.marvel.com:80/v1/public/characters?offset=' + str(offset) + '&limit=5&' + api_key)
+
 
 try:
     data1 = json.load(urllib.request.urlopen(request))
