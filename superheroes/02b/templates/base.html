@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <title>Marvel Heroes</title>
+    <style type="text/css">
+            table { font-size: 30px; /*margin: auto;*/  margin: 4em; }
+            body { color: Black; }
+            html { background-color: lightblue; }
+            body { border-style: solid; border-color: darkred; border-width: thick; }
+        </style>
+    {% endblock %}
+</head>
+<body>
+    <div id="content"><h1>Super Hero Real Names</h1><hr></div>
+    <div id="page_content">{% block page_content %} {% endblock %}</div>
+</body>
+</html>
